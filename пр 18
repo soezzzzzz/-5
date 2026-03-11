@@ -1,0 +1,307 @@
+#include <iostream>
+#include <clocale>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    int figure;
+    while (true) {
+        // Главное меню
+        cout << "[ + ] Программа - \"Геометрические фигуры\"\n\n";
+        cout << "[ 1 ] Линия\n";
+        cout << "[ 2 ] Квадрат\n";
+        cout << "[ 3 ] Прямоугольник\n";
+        cout << "[ 4 ] Треугольник\n";
+        cout << "[ 5 ] Решетка\n";
+        cout << "[ 6 ] Крестик\n";
+        cout << "[ 7 ] Плюс\n";
+        cout << "[ 8 ] Выход\n\n";
+
+        cout << "[ + ] Выберите фигуру: ";
+        cin >> figure;
+
+        if (figure == 8) {
+            cout << "[ + ] Выход из программы.\n";
+            break;
+        }
+
+        switch (figure) {
+            case 1: { // Линия
+                system("cls");
+                int type, length;
+                char texture;
+
+                cout << "[ + ] Фигура: \"Линия\"\n\n";
+                cout << "[ 1 ] Горизонтальная\n";
+                cout << "[ 2 ] Вертикальная\n\n";
+
+                cout << "[ + ] Выберите тип: ";
+                cin >> type;
+
+                cout << "[ + ] Длина линии: ";
+                cin >> length;
+
+                cout << "[ + ] Текстура линии: ";
+                cin >> texture;
+
+                cout << "\n[ + ] Результат:\n";
+
+                if (type == 1) {
+                    for (int i = 0; i < length; i++)
+                        cout << texture << "  ";
+                    cout << endl;
+                } else if (type == 2) {
+                    for (int i = 0; i < length; i++)
+                        cout << texture << endl;
+                } else {
+                    cout << "[ - ] Неверный тип линии!\n";
+                }
+
+                cout << "\n[ + ] Нажмите Enter для возврата в меню...";
+                cin.ignore();
+                cin.get();
+                system("cls");
+                break;
+            }
+
+            case 2: { // Квадрат
+                system("cls");
+                int type, size;
+                char texture;
+
+                cout << "[ + ] Фигура: \"Квадрат\"\n\n";
+                cout << "[ 1 ] Заполненный\n";
+                cout << "[ 2 ] Пустой\n\n";
+
+                cout << "[ + ] Выберите тип: ";
+                cin >> type;
+
+                cout << "[ + ] Размер: ";
+                cin >> size;
+
+                cout << "[ + ] Текстура: ";
+                cin >> texture;
+
+                cout << "\n[ + ] Результат:\n\n";
+
+                for (int i = 0; i < size; i++) {
+                    for (int j = 0; j < size; j++) {
+                        if (type == 1)
+                            cout << texture << "   ";
+                        else if (type == 2) {
+                            if (i == 0 || i == size - 1 || j == 0 || j == size - 1)
+                                cout << texture << "   ";
+                            else
+                                cout << ".   ";
+                        }
+                    }
+                    cout << endl;
+                }
+
+                cout << "\n[ + ] Нажмите Enter для возврата в меню...";
+                cin.ignore();
+                cin.get();
+                system("cls");
+                break;
+            }
+
+            case 3: { // Прямоугольник
+                system("cls");
+                int type, width, height;
+                char texture;
+
+                cout << "[ + ] Фигура: \"Прямоугольник\"\n\n";
+                cout << "[ 1 ] Заполненный\n";
+                cout << "[ 2 ] Пустой\n\n";
+
+                cout << "[ + ] Выберите тип: ";
+                cin >> type;
+
+                cout << "[ + ] Ширина: ";
+                cin >> width;
+
+                cout << "[ + ] Высота: ";
+                cin >> height;
+
+                cout << "[ + ] Текстура: ";
+                cin >> texture;
+
+                cout << "\n[ + ] Результат:\n\n";
+
+                for (int i = 0; i < height; i++) {
+                    for (int j = 0; j < width; j++) {
+                        if (type == 1)
+                            cout << texture << "   ";
+                        else if (type == 2) {
+                            if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
+                                cout << texture << "   ";
+                            else
+                                cout << ".   ";
+                        }
+                    }
+                    cout << endl;
+                }
+
+                cout << "\n[ + ] Нажмите Enter для возврата в меню...";
+                cin.ignore();
+                cin.get();
+                system("cls");
+                break;
+            }
+
+            case 4: { // Треугольник
+                system("cls");
+                int type, height;
+                char texture;
+
+                cout << "[ + ] Фигура: \"Треугольник\"\n\n";
+                cout << "[ 1 ] Заполненный\n";
+                cout << "[ 2 ] Пустой\n\n";
+
+                cout << "[ + ] Выберите тип: ";
+                cin >> type;
+
+                cout << "[ + ] Высота: ";
+                cin >> height;
+
+                cout << "[ + ] Текстура: ";
+                cin >> texture;
+
+                cout << "\n[ + ] Результат:\n\n";
+
+                for (int i = 0; i < height; i++) {
+                    for (int j = 0; j < height - i - 1; j++)
+                        cout << ".   ";
+
+                    for (int j = 0; j <= i; j++) {
+                        if (type == 1)
+                            cout << texture << "   ";
+                        else if (type == 2) {
+                            if (j == 0 || j == i || i == height - 1)
+                                cout << texture << "   ";
+                            else
+                                cout << ".   ";
+                        }
+                    }
+                    cout << endl;
+                }
+
+                cout << "\n[ + ] Нажмите Enter для возврата в меню...";
+                cin.ignore();
+                cin.get();
+                system("cls");
+                break;
+            }
+
+            case 5: { // Решетка
+                system("cls");
+                int size;
+                char texture;
+
+                cout << "[ + ] Фигура: \"Решетка\"\n\n";
+
+                cout << "[ + ] Размер: ";
+                cin >> size;
+
+                cout << "[ + ] Текстура: ";
+                cin >> texture;
+
+                cout << "\n[ + ] Результат:\n\n";
+
+                for (int i = 0; i < size; i++) {
+                    for (int j = 0; j < size; j++) {
+                        if (i % 2 == 0) {
+                            if (j % 2 == 0)
+                                cout << ".   ";
+                            else
+                                cout << texture << "   ";
+                        } else {
+                            cout << texture << "   ";
+                        }
+                    }
+                    cout << endl;
+                }
+
+                cout << "\n[ + ] Нажмите Enter для возврата в меню...";
+                cin.ignore();
+                cin.get();
+                system("cls");
+                break;
+            }
+
+            case 6: { // Крестик
+                system("cls");
+                int size;
+                char texture;
+
+                cout << "[ + ] Фигура: \"Крестик\"\n\n";
+
+                cout << "[ + ] Размер: ";
+                cin >> size;
+
+                cout << "[ + ] Текстура: ";
+                cin >> texture;
+
+                cout << "\n[ + ] Результат:\n\n";
+
+                for (int i = 0; i < size; i++) {
+                    for (int j = 0; j < size; j++) {
+                        if (i == j || j == size - i - 1)
+                            cout << texture << "   ";
+                        else
+                            cout << ".   ";
+                    }
+                    cout << endl;
+                }
+
+                cout << "\n[ + ] Нажмите Enter для возврата в меню...";
+                cin.ignore();
+                cin.get();
+                system("cls");
+                break;
+            }
+
+            case 7: { // Плюс
+                system("cls");
+                int size;
+                char texture;
+
+                cout << "[ + ] Фигура: \"Плюс\"\n\n";
+
+                cout << "[ + ] Размер: ";
+                cin >> size;
+
+                cout << "[ + ] Текстура: ";
+                cin >> texture;
+
+                cout << "\n[ + ] Результат:\n\n";
+
+                int mid = size / 2;
+                for (int i = 0; i < size; i++) {
+                    for (int j = 0; j < size; j++) {
+                        if (i == mid || j == mid)
+                            cout << texture << "   ";
+                        else
+                            cout << ".   ";
+                    }
+                    cout << endl;
+                }
+
+                cout << "\n[ + ] Нажмите Enter для возврата в меню...";
+                cin.ignore();
+                cin.get();
+                system("cls");
+                break;
+            }
+
+            default:
+                cout << "[ - ] Неверный пункт меню!\n";
+                system("cls");
+                break;
+        }
+    }
+
+    return 0;
+}
