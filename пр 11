@@ -1,0 +1,75 @@
+#include <iostream>
+#include <clocale>
+#include <cstdlib> // для system("cls")
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    int figure;
+    while (true) {
+        // Главное меню программы
+        cout << "[ + ] Программа - \"Геометрические фигуры\"\n\n";
+        cout << "[ 1 ] Линия\n";
+        cout << "[ 2 ] Выход\n\n";
+
+        cout << "[ + ] Выберите фигуру: ";
+        cin >> figure;
+
+        if (figure == 2) {
+            cout << "[ + ] Выход из программы.\n";
+            break;
+        }
+
+        switch (figure) {
+            case 1: { // Линия
+                system("cls"); // очистка консоли
+                int type;
+                cout << "[ + ] Фигура: \"Линия\"\n\n";
+                cout << "[ 1 ] Горизонтальная\n";
+                cout << "[ 2 ] Вертикальная\n\n";
+
+                cout << "[ + ] Выберите тип: ";
+                cin >> type;
+
+                int length;
+                char texture;
+
+                cout << "\n[ + ] Длина линии: ";
+                cin >> length;
+
+                cout << "[ + ] Текстура линии: ";
+                cin >> texture;
+
+                cout << "\n[ + ] Результат:\n\n";
+
+                if (type == 1) { // горизонтальная
+                    for (int i = 0; i < length; i++) {
+                        cout << texture << "  ";
+                    }
+                    cout << endl;
+                }
+                else if (type == 2) { // вертикальная
+                    for (int i = 0; i < length; i++) {
+                        cout << texture << endl;
+                    }
+                }
+                else {
+                    cout << "[ - ] Неверный тип линии!\n";
+                }
+
+                cout << "\n[ + ] Нажмите Enter для возврата в меню...";
+                cin.ignore();
+                cin.get();
+                system("cls");
+                break;
+            }
+            default:
+                cout << "[ - ] Неверный пункт меню!\n";
+                system("cls");
+                break;
+        }
+    }
+
+    return 0;
+}
