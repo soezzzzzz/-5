@@ -1,0 +1,114 @@
+#include <iostream>
+#include <clocale>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    int menu, word;
+
+    cout << "[ + ] Переводчик\n\n";
+    cout << "[ 1 ] Русские слова\n";
+    cout << "[ 2 ] Английские слова\n";
+    cout << "[ 3 ] Выйти\n\n";
+
+    cout << "[ + ] Выберите пункт меню: ";
+    cin >> menu;
+
+    switch(menu) {
+
+    case 1:
+        cout << "\n[ + ] Переводчик \"Список русских слов\"\n\n";
+        cout << "[ 1 ] Дом\n";
+        cout << "[ 2 ] Дорога\n";
+        cout << "[ 3 ] Книга\n";
+        cout << "[ 4 ] Машина\n";
+        cout << "[ 5 ] Школа\n";
+        cout << "[ 6 ] Город\n";
+        cout << "[ 7 ] Вода\n";
+        cout << "[ 8 ] Солнце\n";
+        cout << "[ 9 ] Луна\n";
+        cout << "[ 10 ] Окно\n";
+        cout << "[ 11 ] Дверь\n";
+        cout << "[ 12 ] Стол\n";
+        cout << "[ 13 ] Стул\n";
+        cout << "[ 14 ] Дерево\n";
+        cout << "[ 15 ] Река\n\n";
+
+        cout << "[ + ] Выберите номер слова: ";
+        cin >> word;
+
+        switch(word) {
+            case 1: cout << "[ + ] Перевод: дом -> house\n"; break;
+            case 2: cout << "[ + ] Перевод: дорога -> road\n"; break;
+            case 3: cout << "[ + ] Перевод: книга -> book\n"; break;
+            case 4: cout << "[ + ] Перевод: машина -> car\n"; break;
+            case 5: cout << "[ + ] Перевод: школа -> school\n"; break;
+            case 6: cout << "[ + ] Перевод: город -> city\n"; break;
+            case 7: cout << "[ + ] Перевод: вода -> water\n"; break;
+            case 8: cout << "[ + ] Перевод: солнце -> sun\n"; break;
+            case 9: cout << "[ + ] Перевод: луна -> moon\n"; break;
+            case 10: cout << "[ + ] Перевод: окно -> window\n"; break;
+            case 11: cout << "[ + ] Перевод: дверь -> door\n"; break;
+            case 12: cout << "[ + ] Перевод: стол -> table\n"; break;
+            case 13: cout << "[ + ] Перевод: стул -> chair\n"; break;
+            case 14: cout << "[ + ] Перевод: дерево -> tree\n"; break;
+            case 15: cout << "[ + ] Перевод: река -> river\n"; break;
+            default:
+                cout << "[ + ] Неверно выбран номер слова!\n";
+        }
+        break;
+
+    case 2:
+        cout << "\n[ + ] Переводчик \"Список английских слов\"\n\n";
+        cout << "[ 1 ] House\n";
+        cout << "[ 2 ] Road\n";
+        cout << "[ 3 ] Book\n";
+        cout << "[ 4 ] Car\n";
+        cout << "[ 5 ] School\n";
+        cout << "[ 6 ] City\n";
+        cout << "[ 7 ] Water\n";
+        cout << "[ 8 ] Sun\n";
+        cout << "[ 9 ] Moon\n";
+        cout << "[ 10 ] Window\n";
+        cout << "[ 11 ] Door\n";
+        cout << "[ 12 ] Table\n";
+        cout << "[ 13 ] Chair\n";
+        cout << "[ 14 ] Tree\n";
+        cout << "[ 15 ] River\n\n";
+
+        cout << "[ + ] Выберите номер слова: ";
+        cin >> word;
+
+        switch(word) {
+            case 1: cout << "[ + ] Перевод: house -> дом\n"; break;
+            case 2: cout << "[ + ] Перевод: road -> дорога\n"; break;
+            case 3: cout << "[ + ] Перевод: book -> книга\n"; break;
+            case 4: cout << "[ + ] Перевод: car -> машина\n"; break;
+            case 5: cout << "[ + ] Перевод: school -> школа\n"; break;
+            case 6: cout << "[ + ] Перевод: city -> город\n"; break;
+            case 7: cout << "[ + ] Перевод: water -> вода\n"; break;
+            case 8: cout << "[ + ] Перевод: sun -> солнце\n"; break;
+            case 9: cout << "[ + ] Перевод: moon -> луна\n"; break;
+            case 10: cout << "[ + ] Перевод: window -> окно\n"; break;
+            case 11: cout << "[ + ] Перевод: door -> дверь\n"; break;
+            case 12: cout << "[ + ] Перевод: table -> стол\n"; break;
+            case 13: cout << "[ + ] Перевод: chair -> стул\n"; break;
+            case 14: cout << "[ + ] Перевод: tree -> дерево\n"; break;
+            case 15: cout << "[ + ] Перевод: river -> река\n"; break;
+            default:
+                cout << "[ + ] Неверно выбран номер слова!\n";
+        }
+        break;
+
+    case 3:
+        cout << "[ + ] Выход из программы.\n";
+        break;
+
+    default:
+        cout << "[ + ] Неверный пункт меню!\n";
+    }
+
+    return 0;
+}
