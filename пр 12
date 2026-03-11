@@ -1,0 +1,127 @@
+#include <iostream>
+#include <string>
+#include <clocale>
+#include <cstdlib>
+using namespace std;
+
+// Цвета через ANSI-коды
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define BLUE    "\033[34m"
+#define YELLOW  "\033[33m"
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    string playerName = "Игрок";
+    int lives = 3;
+    int score = 0;
+    int numQuestions = 5; // можно менять через настройки
+    int menuChoice;
+
+    while (true) {
+        // Главное меню
+        cout << BLUE << "\n[ Меню Викторины ]\n" << RESET;
+        cout << "[ 1 ] Начать игру\n";
+        cout << "[ 2 ] Настройки\n";
+        cout << "[ 3 ] Правила\n";
+        cout << "[ 4 ] Выйти\n";
+        cout << "[ > ] Выберите пункт: ";
+        cin >> menuChoice;
+
+        if (menuChoice == 4) {
+            cout << "[ + ] Выход из игры.\n";
+            break;
+        }
+
+        else if (menuChoice == 3) { // Правила
+            cout << YELLOW << "\n[ Правила Викторины ]\n" << RESET;
+            cout << "1. За правильный ответ начисляются очки.\n";
+            cout << "2. За неправильный ответ теряются жизни.\n";
+            cout << "3. Игра продолжается, пока есть жизни или вопросы.\n";
+            cout << "[ + ] Нажмите Enter для возврата в меню...";
+            cin.ignore();
+            cin.get();
+        }
+
+        else if (menuChoice == 2) { // Настройки
+            int settingsChoice;
+            while (true) {
+                cout << BLUE << "\n[ Настройки ]\n" << RESET;
+                cout << "[ 1 ] Изменить имя игрока\n";
+                cout << "[ 2 ] Количество вопросов\n";
+                cout << "[ 3 ] Выход в меню\n";
+                cout << "[ > ] Выберите пункт: ";
+                cin >> settingsChoice;
+
+                if (settingsChoice == 3) break;
+
+                else if (settingsChoice == 1) {
+                    cout << "[ + ] Введите имя игрока: ";
+                    cin.ignore();
+                    getline(cin, playerName);
+                    cout << "[ + ] Имя обновлено!\n";
+                }
+                else if (settingsChoice == 2) {
+                    cout << "[ + ] Введите количество вопросов (3-12): ";
+                    cin >> numQuestions;
+                    if (numQuestions < 3) numQuestions = 3;
+                    if (numQuestions > 12) numQuestions = 12;
+                    cout << "[ + ] Количество вопросов установлено: " << numQuestions << "\n";
+                }
+                else {
+                    cout << "[ - ] Неверный пункт!\n";
+                }
+            }
+        }
+
+        else if (menuChoice == 1) { // Начало игры
+            lives = 3;
+            score = 0;
+            int qCounter = 0;
+
+            while (lives > 0 && qCounter < numQuestions) {
+                cout << GREEN << "\n[ + ] Игрок: " << playerName 
+                     << " | жизни: " << lives 
+                     << " | очки: " << score << " ]\n" << RESET;
+
+                // Пример вопроса
+                cout << "[ " << qCounter+1 << " ] Вопрос: Системный язык программирования?\n";
+                cout << "[ A ] Python\t[ B ] C#\n";
+                cout << "[ C ] Ruby\t[ D ] C++\n";
+                cout << "[ + ] Выбрать ответ: ";
+                
+                char answer;
+                cin >> answer;
+
+                if (answer == 'D' || answer == 'd') {
+                    cout << GREEN << "[ + ] Верно!\n" << RESET;
+                    score += 10;
+                } else {
+                    cout << RED << "[ - ] Неверно!\n" << RESET;
+                    lives--;
+                }
+
+                qCounter++;
+            }
+
+            if (lives == 0) {
+                cout << RED << "\n[ - ] Жизни закончились! Вы проиграли.\n" << RESET;
+            } else {
+                cout << GREEN << "\n[ + ] Игра завершена! Очки: " << score 
+                     << " | Осталось жизней: " << lives << "\n" << RESET;
+            }
+
+            cout << "[ + ] Нажмите Enter для возврата в меню...";
+            cin.ignore();
+            cin.get();
+        }
+
+        else {
+            cout << "[ - ] Неверный пункт меню!\n";
+        }
+    }
+
+    return 0;
+}
