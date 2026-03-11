@@ -1,0 +1,103 @@
+#include <iostream>
+#include <clocale>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    int month, day;
+
+    cout << "[ + ] Календарь\n";
+    cout << "[ 1 ] Январь\n";
+    cout << "[ 2 ] Февраль\n";
+    cout << "[ 3 ] Март\n";
+    cout << "[ 4 ] Апрель\n";
+    cout << "[ 5 ] Май\n";
+    cout << "[ 6 ] Июнь\n";
+    cout << "[ 7 ] Июль\n";
+    cout << "[ 8 ] Август\n";
+    cout << "[ 9 ] Сентябрь\n";
+    cout << "[ 10 ] Октябрь\n";
+    cout << "[ 11 ] Ноябрь\n";
+    cout << "[ 12 ] Декабрь\n\n";
+
+    cout << "[ + ] Выберите месяц: ";
+    cin >> month;
+
+    switch (month) {
+        case 1: cout << "[ + ] Выбран месяц - \"Январь\"\n"; break;
+        case 2: cout << "[ + ] Выбран месяц - \"Февраль\"\n"; break;
+        case 3: cout << "[ + ] Выбран месяц - \"Март\"\n"; break;
+        case 4: cout << "[ + ] Выбран месяц - \"Апрель\"\n"; break;
+        case 5: cout << "[ + ] Выбран месяц - \"Май\"\n"; break;
+        case 6: cout << "[ + ] Выбран месяц - \"Июнь\"\n"; break;
+        case 7: cout << "[ + ] Выбран месяц - \"Июль\"\n"; break;
+        case 8: cout << "[ + ] Выбран месяц - \"Август\"\n"; break;
+        case 9: cout << "[ + ] Выбран месяц - \"Сентябрь\"\n"; break;
+        case 10: cout << "[ + ] Выбран месяц - \"Октябрь\"\n"; break;
+        case 11: cout << "[ + ] Выбран месяц - \"Ноябрь\"\n"; break;
+        case 12: cout << "[ + ] Выбран месяц - \"Декабрь\"\n"; break;
+        default:
+            cout << "[ + ] Неправильно введен номер месяца!\n";
+            return 0;
+    }
+
+    cout << "[ + ] Выберите день месяца: ";
+    cin >> day;
+
+    switch (day) {
+        case 1: cout << "[ + ] Календарь: 1 "; break;
+        case 2: cout << "[ + ] Календарь: 2 "; break;
+        case 3: cout << "[ + ] Календарь: 3 "; break;
+        case 4: cout << "[ + ] Календарь: 4 "; break;
+        case 5: cout << "[ + ] Календарь: 5 "; break;
+        case 6: cout << "[ + ] Календарь: 6 "; break;
+        case 7: cout << "[ + ] Календарь: 7 "; break;
+        case 8: cout << "[ + ] Календарь: 8 "; break;
+        case 9: cout << "[ + ] Календарь: 9 "; break;
+        case 10: cout << "[ + ] Календарь: 10 "; break;
+        case 11: cout << "[ + ] Календарь: 11 "; break;
+        case 12: cout << "[ + ] Календарь: 12 "; break;
+        case 13: cout << "[ + ] Календарь: 13 "; break;
+        case 14: cout << "[ + ] Календарь: 14 "; break;
+        case 15: cout << "[ + ] Календарь: 15 "; break;
+        case 16: cout << "[ + ] Календарь: 16 "; break;
+        case 17: cout << "[ + ] Календарь: 17 "; break;
+        case 18: cout << "[ + ] Календарь: 18 "; break;
+        case 19: cout << "[ + ] Календарь: 19 "; break;
+        case 20: cout << "[ + ] Календарь: 20 "; break;
+        case 21: cout << "[ + ] Календарь: 21 "; break;
+        case 22: cout << "[ + ] Календарь: 22 "; break;
+        case 23: cout << "[ + ] Календарь: 23 "; break;
+        case 24: cout << "[ + ] Календарь: 24 "; break;
+        case 25: cout << "[ + ] Календарь: 25 "; break;
+        case 26: cout << "[ + ] Календарь: 26 "; break;
+        case 27: cout << "[ + ] Календарь: 27 "; break;
+        case 28: cout << "[ + ] Календарь: 28 "; break;
+        case 29: cout << "[ + ] Календарь: 29 "; break;
+        case 30: cout << "[ + ] Календарь: 30 "; break;
+        case 31: cout << "[ + ] Календарь: 31 "; break;
+        default:
+            cout << "[ + ] Неправильно введен день месяца!\n";
+            return 0;
+    }
+
+    switch (month) {
+        case 1: cout << "января.\n"; break;
+        case 2: cout << "февраля.\n"; break;
+        case 3: cout << "марта.\n"; break;
+        case 4: cout << "апреля.\n"; break;
+        case 5: cout << "мая.\n"; break;
+        case 6: cout << "июня.\n"; break;
+        case 7: cout << "июля.\n"; break;
+        case 8: cout << "августа.\n"; break;
+        case 9: cout << "сентября.\n"; break;
+        case 10: cout << "октября.\n"; break;
+        case 11: cout << "ноября.\n"; break;
+        case 12: cout << "декабря.\n"; break;
+        default: break;
+    }
+
+    return 0;
+}
