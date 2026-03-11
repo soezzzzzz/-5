@@ -1,0 +1,116 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int arr[7];
+    int choice;
+    int value;
+
+    // Инициализация массива
+    for (int i = 0; i < 7; i++) {
+        cout << "[ + ] Инициализация | ячейка " << i << ": ";
+        cin >> arr[i];
+    }
+
+    do {
+
+        cout << "\n[ + ] Настройки массива:\n";
+        cout << "\n[ 1 ] Сортировка по возрастанию\n";
+        cout << "[ 2 ] Сортировка по убыванию\n";
+        cout << "[ 3 ] Перемножить массив\n";
+        cout << "[ 4 ] Сложить массив\n";
+        cout << "[ 5 ] Разделить массив\n";
+        cout << "[ 6 ] Обнулить массив\n";
+        cout << "\n[ 9 ] Задать новые значения массиву\n";
+
+        cout << "\n[ + ] Ввод: ";
+        cin >> choice;
+
+        if (choice == 1) {
+
+            // Сортировка по возрастанию
+            for (int i = 0; i < 7 - 1; i++) {
+                for (int j = 0; j < 7 - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        int temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+
+        }
+        else if (choice == 2) {
+
+            // Сортировка по убыванию
+            for (int i = 0; i < 7 - 1; i++) {
+                for (int j = 0; j < 7 - i - 1; j++) {
+                    if (arr[j] < arr[j + 1]) {
+                        int temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+
+        }
+        else if (choice == 3) {
+
+            cout << "Введите число для умножения: ";
+            cin >> value;
+
+            for (int i = 0; i < 7; i++) {
+                arr[i] *= value;
+            }
+
+        }
+        else if (choice == 4) {
+
+            cout << "Введите число для сложения: ";
+            cin >> value;
+
+            for (int i = 0; i < 7; i++) {
+                arr[i] += value;
+            }
+
+        }
+        else if (choice == 5) {
+
+            cout << "Введите число для деления: ";
+            cin >> value;
+
+            for (int i = 0; i < 7; i++) {
+                arr[i] /= value;
+            }
+
+        }
+        else if (choice == 6) {
+
+            // Обнуление массива
+            for (int i = 0; i < 7; i++) {
+                arr[i] = 0;
+            }
+
+        }
+        else if (choice == 9) {
+
+            // Новая инициализация
+            for (int i = 0; i < 7; i++) {
+                cout << "[ + ] Инициализация | ячейка " << i << ": ";
+                cin >> arr[i];
+            }
+
+        }
+
+        // Вывод массива
+        cout << "\nТекущий массив:\n";
+        for (int i = 0; i < 7; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+
+    } while (choice != 0);
+
+    return 0;
+}
