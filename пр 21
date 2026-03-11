@@ -1,0 +1,98 @@
+#include <iostream>
+#include <clocale>
+#include <cstdlib>
+using namespace std;
+
+// Функция для рисования рекурсивного квадрата
+void recursiveSquare(int size, char texture, int row = 0, int col = 0) {
+    int mid = size / 2;
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            // Рисуем границы внешнего квадрата
+            if (i == 0 || i == size - 1 || j == 0 || j == size - 1) {
+                cout << texture << "   ";
+            }
+            // Рисуем вложенные квадраты (примерно по образцу)
+            else if ((i == 2 && j >= 2 && j <= size - 3) ||
+                     (i == size - 3 && j >= 2 && j <= size - 3) ||
+                     (j == 2 && i >= 2 && i <= size - 3) ||
+                     (j == size - 3 && i >= 2 && i <= size - 3)) {
+                cout << texture << "   ";
+            }
+            else {
+                cout << ".   ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    int figure;
+    while (true) {
+        // Главное меню
+        cout << "[ + ] Программа - \"Геометрические фигуры\"\n\n";
+        cout << "[ 1 ] Линия\n";
+        cout << "[ 2 ] Квадрат\n";
+        cout << "[ 3 ] Прямоугольник\n";
+        cout << "[ 4 ] Треугольник\n";
+        cout << "[ 5 ] Решетка\n";
+        cout << "[ 6 ] Крестик\n";
+        cout << "[ 7 ] Плюс\n";
+        cout << "[ 8 ] Ромб\n";
+        cout << "[ 9 ] Змейка\n";
+        cout << "[ 10 ] Рекурсивный квадрат\n";
+        cout << "[ 11 ] Выход\n\n";
+
+        cout << "[ + ] Выберите фигуру: ";
+        cin >> figure;
+
+        if (figure == 11) {
+            cout << "[ + ] Выход из программы.\n";
+            break;
+        }
+
+        switch (figure) {
+            case 1: { /* Линия */ system("cls"); /* код линии */ break; }
+            case 2: { /* Квадрат */ system("cls"); /* код квадрата */ break; }
+            case 3: { /* Прямоугольник */ system("cls"); /* код прямоугольника */ break; }
+            case 4: { /* Треугольник */ system("cls"); /* код треугольника */ break; }
+            case 5: { /* Решетка */ system("cls"); /* код решетки */ break; }
+            case 6: { /* Крестик */ system("cls"); /* код крестика */ break; }
+            case 7: { /* Плюс */ system("cls"); /* код плюса */ break; }
+            case 8: { /* Ромб */ system("cls"); /* код ромба */ break; }
+            case 9: { /* Змейка */ system("cls"); /* код змейки */ break; }
+            case 10: { // Рекурсивный квадрат
+                system("cls");
+                int size;
+                char texture;
+
+                cout << "[ + ] Фигура: \"Рекурсивный квадрат\"\n\n";
+
+                cout << "[ + ] Размер: ";
+                cin >> size;
+
+                cout << "[ + ] Текстура: ";
+                cin >> texture;
+
+                cout << "\n[ + ] Результат:\n\n";
+
+                recursiveSquare(size, texture);
+
+                cin.ignore();
+                cin.get();
+                system("cls");
+                break;
+            }
+            default:
+                cout << "[ - ] Неверный пункт меню!\n";
+                system("cls");
+                break;
+        }
+    }
+
+    return 0;
+}
