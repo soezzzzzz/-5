@@ -1,0 +1,39 @@
+#include <iostream>
+#include <clocale>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    int n;
+
+    cout << "[ + ] Цикл \"WHILE\"\n\n";
+
+    while (true) {
+
+        cout << "[ + ] Введите число: ";
+        cin >> n;
+
+        if (n == 0) {
+            cout << "[ + ] Выход из программы.\n";
+            break;
+        }
+
+        if (n < 0 || n > 15) {
+            cout << "[ + ] Ошибка! Введите число от 1 до 15.\n\n";
+            continue;
+        }
+
+        int i = 1;
+
+        while (i <= n) {
+            cout << "[ + ] Цикл отработал. Круг: " << i << ".\n";
+            i++;
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+}
