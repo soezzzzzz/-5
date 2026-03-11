@@ -1,0 +1,83 @@
+#include <iostream>
+#include <clocale>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    srand(time(0));
+
+    int menu;
+
+    cout << "[ Меню ]\n";
+    cout << "[ 1 ] Начать игру\n";
+    cout << "[ 2 ] Выйти\n\n";
+
+    cout << "[ > ] Выберите пункт: ";
+    cin >> menu;
+
+    if (menu == 2) {
+        cout << "[ + ] Выход из программы.\n";
+        return 0;
+    }
+    else if (menu == 1) {
+
+        int num1 = rand() % 10 + 1;
+        int num2 = rand() % 10 + 1;
+        int num3 = rand() % 10 + 1;
+
+        while (num2 == num1)
+            num2 = rand() % 10 + 1;
+
+        while (num3 == num1 || num3 == num2)
+            num3 = rand() % 10 + 1;
+
+        int attempts = 5;
+        int guessed = 0;
+        int guess;
+
+        bool g1 = false, g2 = false, g3 = false;
+
+        while (attempts > 0 && guessed < 3) {
+
+            cout << "\n[ + ] Угаданных чисел: [ " << guessed << " / 3 ]\n";
+            cout << "[ + ] Попыток: [ " << attempts << " ]\n\n";
+
+            cout << "[ > ] Угадать число: ";
+            cin >> guess;
+
+            if ((guess == num1 && !g1) ||
+                (guess == num2 && !g2) ||
+                (guess == num3 && !g3)) {
+
+                cout << "[ + ] Вы угадали число!\n";
+                guessed++;
+
+                if (guess == num1) g1 = true;
+                if (guess == num2) g2 = true;
+                if (guess == num3) g3 = true;
+            }
+            else {
+                cout << "[ - ] Вы не угадали число!\n";
+            }
+
+            attempts--;
+        }
+
+        if (guessed == 3) {
+            cout << "\n[ + ] Поздравляем! Вы угадали все числа!\n";
+        }
+        else {
+            cout << "\n[ - ] Попытки закончились!\n";
+            cout << "[ + ] Загаданные числа были: "
+                 << num1 << " " << num2 << " " << num3 << endl;
+        }
+
+    }
+    else {
+        cout << "[ - ] Неверный пункт меню!\n";
+    }
+
+    return 0;
+}
